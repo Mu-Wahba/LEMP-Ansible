@@ -1,0 +1,8 @@
+[all:vars]
+
+ansible_connection = ssh
+
+[local]
+
+aws ansible_host=x.x.x.x  ansible_user=ubuntu ansible_private_key_file=/var/lib/jenkins/ansible/AWS-TEST.pem 
+
