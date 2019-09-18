@@ -13,3 +13,4 @@ php_packages:
   - php7.2-memcached
   - php7.2-apcu
   - php7.2-xml
+  - php7.2-zip

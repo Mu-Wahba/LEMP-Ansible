@@ -20,4 +20,5 @@
     working_dir: /var/www/html/htmly/laravel-permissions
 
 - name: Run artisan migrate
-  shell: sudo php /var/www/html/htmly/laravel-permissions/artisan migrate --path /var/www/html/htmly/laravel-permissions/database/migrations --force 
+  shell: php /var/www/html/htmly/laravel-permissions/artisan migrate --path /var/www/html/htmly/laravel-permissions/database/migrations --force
+  become: true 
