@@ -1,11 +1,11 @@
 ---
 - name: installs common utilities
   apt:
-  name:
-    - vim
-    - python
-    - curl
-    - git
-    - bash-completion
-  state: latest
-  update_cache: true
+    name:
+      - vim
+      - python
+      - curl
+      - git
+      - bash-completion
+    state: latest
+    update_cache: true
