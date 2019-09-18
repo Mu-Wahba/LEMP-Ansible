@@ -5,7 +5,6 @@
    roles:
     - common
     - nginx
-    - mysql
     - php
     - composer
     - Deploy
