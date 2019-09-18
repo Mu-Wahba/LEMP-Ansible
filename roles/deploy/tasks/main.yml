@@ -5,7 +5,7 @@
     src: /var/lib/jenkins/workspace/test-php/
     dest: /var/www/html/htmly/laravel-permissions
   notify:
-    - reload nginx
+    - start nginx
 
 - name : set app dir permissions
   file:
@@ -21,4 +21,4 @@
 
 - name: Run artisan migrate
   shell: php /var/www/html/htmly/laravel-permissions/artisan migrate --path /var/www/html/htmly/laravel-permissions/database/migrations --force
-  become: true 
+  become: true
