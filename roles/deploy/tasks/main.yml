@@ -4,11 +4,11 @@
   synchronize:
     src: /var/lib/jenkins/workspace/test-php/
     dest: /var/www/html/htmly/laravel-permissions
-  notify: 
+  notify:
     - reload nginx
 
 - name : set app dir permissions
-  file: 
+  file:
     dest: /var/www/html/htmly/laravel-permissions
     owner: www-data
     group: www-data
@@ -19,5 +19,5 @@
     command: install
     working_dir: /var/www/html/htmly/laravel-permissions
 
-    #- name: Run artisan migrate
-    #shell: php /var/www/html/htmly/laravel-permissions/artisan migrate --path /var/www/html/htmly/laravel-permissions/database/migrations --force 
+- name: Run artisan migrate
+  shell: sudo php /var/www/html/htmly/laravel-permissions/artisan migrate --path /var/www/html/htmly/laravel-permissions/database/migrations --force 
