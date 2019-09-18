@@ -1,10 +1,11 @@
 ---
 - name: installs common utilities
-  apt: pkg={{ item }} state=latest update_cache=true
-  with_items:
-      - vim
-      - curl
-      - htop
-      - nmap
-      - git
-      - bash-completion
+  apt:
+  name:
+    - vim
+    - python
+    - curl
+    - git
+    - bash-completion
+  state: latest
+  update_cache: true

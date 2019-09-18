@@ -1,13 +1,13 @@
 ---
 - name: Install MySQL packages
   apt:
-    name: "{{ item }}"
+    name:
+      - mysql-server
+      - mysql-client
+      - python-mysqldb
     state: present
     update_cache: yes
-  with_items:
-    - mysql-server
-    - mysql-client
-    - python-mysqldb
+
 
 - name: Ensure that MySQL is started and enabled
   service:
@@ -36,37 +36,10 @@
     line: 'bind-address = *'
   notify: restart mysql
 
-# # Security best practices
-# - name: Remove the anonymous accounts
-#   mysql_user:
-#     name: ""
-#     state: absent
-#     login_user: root
-#     login_password: "{{ root_password}}"
-#     host_all: yes
-#
-# - name: Remove the test database
-#   mysql_db:
-#     db: test
-#     state: absent
-#     login_user: root
-#     login_password: "{{ root_password}}"
-#
-#
-# - name: Create a database for Laravel
-#   mysql_db:
-#     db: "{{ database.name }}"
-#     state: present
-#     login_user: root
-#     login_password: "{{ root_password}}"
-#
-# - name: Create the database user
-#   mysql_user:
-#     name: laravel
-#     password: laravel
-#     priv: '{{ database.name }}.*:ALL,GRANT'
-#     host: '%'
-#     state: present
-#     login_user: root
-#     login_password: "{{ root_password}}"
-#
+
+- name: Create a database for Laravel
+  mysql_db:
+    db: phpdb
+    state: present
+    login_user: root
+    login_password: "{{ root_password}}"
